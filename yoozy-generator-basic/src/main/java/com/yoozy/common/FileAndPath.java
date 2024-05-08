@@ -4,7 +4,6 @@ import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.logging.Logger;
 
 import static sun.invoke.util.Wrapper.isPrimitiveType;
 
@@ -58,27 +57,27 @@ public class FileAndPath {
     }
 
 
-    static <T> void print(T obj) {
+    public static <T> void print(T obj) {
         print("", obj);
     }
 
-    static <T> void print(String message, Collection<T> obj) {
+    public static <T> void print(String message, Collection<T> obj) {
         print(message, obj.toArray());
     }
 
-    static void print(String message, Number[] obj) {
+    public static void print(String message, Number[] obj) {
         print(message, Arrays.toString(obj));
     }
 
-    static String strformat(String str, int length) {
+    public static String strformat(String str, int length) {
         return strformat(str, length, ' ', false);
     }
 
-    static String strformat(String str, int length, char replace) {
+    public static String strformat(String str, int length, char replace) {
         return strformat(str, length, replace, false);
     }
 
-    static String strformat(String str, int length, char replace, boolean sign) {
+    public static String strformat(String str, int length, char replace, boolean sign) {
         StringBuilder builder = new StringBuilder("%");
         if (!sign) {
             builder.append("-");
@@ -89,18 +88,18 @@ public class FileAndPath {
         return String.format(format, str).replace(' ', replace);
     }
 
-    static <T> void error(String message, T... objs) {
+    public static <T> void error(String message, T... objs) {
         String level = strformat(">>>ERROR<<<", 13, ' ');
         print(level + message, objs);
     }
 
-    static <T> void info(String message, T... objs) {
+    public static <T> void info(String message, T... objs) {
         String level = strformat(">>>INFO<<<", 13, ' ');
         print(level + message, objs);
     }
 
     @SafeVarargs
-    static <T> void print(String message, T... objs) {
+    public static <T> void print(String message, T... objs) {
         StringBuilder args;
         if (objs.length <= 1) {
             args = new StringBuilder("%s%n");

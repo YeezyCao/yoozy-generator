@@ -87,6 +87,7 @@ public class YoozyLogger extends Logger {
                         break;
                     default:
                         break;
+                        
                 }
                 String throwable = "";
                 if (record.getThrown() != null) {
